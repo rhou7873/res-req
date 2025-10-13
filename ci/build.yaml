@@ -5,14 +5,14 @@ steps:
     args:
       - "build"
       - "-t"
-      - "us-central1-docker.pkg.dev/$PROJECT_ID/personal-registry/res-req:latest"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/res-req-registry/res-req:latest"
       - "."
   # Push new Docker image to registry
   - id: "push"
     name: "gcr.io/cloud-builders/docker"
     args:
       - "push"
-      - "us-central1-docker.pkg.dev/$PROJECT_ID/personal-registry/res-req:latest"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/res-req-registry/res-req:latest"
 
 options:
   logging: CLOUD_LOGGING_ONLY
