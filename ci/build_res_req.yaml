@@ -24,12 +24,12 @@ steps:
       - |
         # Create the job if it doesn't exist (idempotent)
         gcloud run jobs describe res-req --region us-central1 || \
-        gcloud run jobs create res-req \
+        gcloud run jobs create res-req-job \
           --image us-central1-docker.pkg.dev/$PROJECT_ID/res-req-registry/res-req:latest \
           --region us-central1
           
         # Update the job to point to the latest image
-        gcloud run jobs update res-req \
+        gcloud run jobs update res-req-job \
           --image us-central1-docker.pkg.dev/$PROJECT_ID/res-req-registry/res-req:latest \
           --region us-central1
 
