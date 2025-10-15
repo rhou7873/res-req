@@ -8,6 +8,4 @@ ENV ENV_NAME=production
 
 COPY . .
 
-EXPOSE 8080
-
 CMD [ "python", "src/check_reply.py" ]
