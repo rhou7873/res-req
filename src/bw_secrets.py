@@ -1,5 +1,6 @@
 """Secrets management"""
 from bitwarden_sdk import BitwardenClient, DeviceType, client_settings_from_dict
+import logging
 import os
 
 API_URL = os.getenv("BW_API_URL")
@@ -28,7 +29,16 @@ client = BitwardenClient(
 
 client.access_token_login(ACCESS_TOKEN)
 
-################# GLOBAL CONSTANTS #################
+################## GLOBAL CONSTANTS ###################
 
 MONGO_CONN_STR = client.secrets().get(
     "32d23546-9159-491a-88dd-b3770028fbef").data.value
+
+#######################################################
+
+# Global logging configuration
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(levelname)s %(asctime)s, %(name)s: %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
